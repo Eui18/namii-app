@@ -59,15 +59,16 @@ fun AppNavHost(
                 onSelectExplorer = {
                     navController.navigate(ClientRoutes.HOME)
                 },
+
                 onSelectSeller = {
-                    // Temporal: se omite el inicio de sesión de vendedor hasta tener la API lista
                     val target = if (isSellerLoggedIn()) {
                         SellerRoutes.ENTRY
                     } else {
-                        SellerRoutes.ONBOARDING_GRAPH
+                        SellerRoutes.LOGIN
                     }
                     navController.navigate(target)
                 }
+
             )
         }
 

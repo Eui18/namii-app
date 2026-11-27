@@ -2,16 +2,11 @@ package com.namii.app.features.seller.establishments.data.datasources.remote
 
 import com.google.gson.annotations.SerializedName
 import com.namii.app.features.client.establishments.data.datasources.remote.BusinessHourDto
-import okhttp3.MultipartBody
 import retrofit2.http.Body
-import retrofit2.http.DELETE
 import retrofit2.http.GET
-import retrofit2.http.Multipart
 import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.PUT
-import retrofit2.http.Part
-import retrofit2.http.Path
 
 data class SellerBusinessHourRequestDto(
     @SerializedName("dayOfWeek") val dayOfWeek: Int,
@@ -67,35 +62,27 @@ data class SellerEstablishmentDto(
 )
 
 interface SellerEstablishmentApiService {
-    @GET("seller/establishment")
+
+    @GET("establishments/my-establishment")
     suspend fun getMyEstablishment(): SellerEstablishmentDto
 
-    @POST("seller/establishment")
+    @POST("establishments")
     suspend fun createEstablishment(
         @Body body: CreateSellerEstablishmentRequestDto
     ): SellerEstablishmentDto
 
-    @PUT("seller/establishment/{id}")
+    @PUT("establishments/my-establishment")
     suspend fun updateEstablishment(
-        @Path("id") id: Int,
         @Body body: UpdateSellerEstablishmentRequestDto
     ): SellerEstablishmentDto
 
-    @PATCH("seller/establishment/{id}/status")
+    @PATCH("establishments/my-establishment/status")
     suspend fun updateManualStatus(
-        @Path("id") id: Int,
         @Body body: UpdateManualStatusRequestDto
     ): SellerEstablishmentDto
 
-    @Multipart
-    @POST("seller/establishment/{id}/cover")
-    suspend fun uploadCoverPhoto(
-        @Path("id") id: Int,
-        @Part coverPhoto: MultipartBody.Part
-    ): SellerEstablishmentDto
-
-    @DELETE("seller/establishment/{id}/cover")
-    suspend fun deleteCoverPhoto(
-        @Path("id") id: Int
+    @PUT("establishments/my-establishment/hours")
+    suspend fun setMyEstablishmentHours(
+        @Body hours: List<SellerBusinessHourRequestDto>
     ): SellerEstablishmentDto
 }

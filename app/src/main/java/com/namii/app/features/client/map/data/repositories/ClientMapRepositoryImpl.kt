@@ -18,12 +18,12 @@ class ClientMapRepositoryImpl @Inject constructor(
         query: String?
     ): Result<List<Establishment>> {
         return try {
-            val response = apiService.getEstablishmentsInMap(
-                north = bounds?.north,
-                south = bounds?.south,
-                east = bounds?.east,
-                west = bounds?.west,
-                query = query
+            val response = apiService.getEstablishments(
+                search = query?.trim()?.takeIf { it.isNotEmpty() },
+                minLat = bounds?.south,
+                maxLat = bounds?.north,
+                minLng = bounds?.west,
+                maxLng = bounds?.east
             )
             Result.success(response.map { it.toDomain() })
         } catch (t: Throwable) {

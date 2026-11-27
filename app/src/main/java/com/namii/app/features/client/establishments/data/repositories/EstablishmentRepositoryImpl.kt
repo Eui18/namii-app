@@ -15,9 +15,13 @@ class EstablishmentRepositoryImpl @Inject constructor(
     private val errorParser: ApiErrorParser
 ) : EstablishmentRepository {
 
-    override suspend fun getEstablishments(category: EstablishmentCategory?): Result<List<Establishment>> {
+    override suspend fun getEstablishments(
+        category: EstablishmentCategory?
+    ): Result<List<Establishment>> {
         return try {
-            val response = apiService.getEstablishments(category?.apiKey)
+            val response = apiService.getEstablishments(
+                category = category?.apiKey
+            )
             Result.success(response.map { it.toDomain() })
         } catch (t: Throwable) {
             Result.failure(Exception(errorParser.parse(t)))
@@ -26,16 +30,20 @@ class EstablishmentRepositoryImpl @Inject constructor(
 
     override suspend fun getPopularEstablishments(): Result<List<Establishment>> {
         return try {
-            val response = apiService.getPopularEstablishments()
+            val response = apiService.getEstablishments()
             Result.success(response.map { it.toDomain() })
         } catch (t: Throwable) {
             Result.failure(Exception(errorParser.parse(t)))
         }
     }
 
-    override suspend fun searchEstablishments(query: String): Result<List<Establishment>> {
+    override suspend fun searchEstablishments(
+        query: String
+    ): Result<List<Establishment>> {
         return try {
-            val response = apiService.searchEstablishments(query)
+            val response = apiService.getEstablishments(
+                search = query.trim().takeIf { it.isNotEmpty() }
+            )
             Result.success(response.map { it.toDomain() })
         } catch (t: Throwable) {
             Result.failure(Exception(errorParser.parse(t)))
@@ -47,12 +55,12 @@ class EstablishmentRepositoryImpl @Inject constructor(
         query: String?
     ): Result<List<Establishment>> {
         return try {
-            val response = apiService.getEstablishmentsInMap(
-                north = bounds?.north,
-                south = bounds?.south,
-                east = bounds?.east,
-                west = bounds?.west,
-                query = query
+            val response = apiService.getEstablishments(
+                search = query?.trim()?.takeIf { it.isNotEmpty() },
+                minLat = bounds?.south,
+                maxLat = bounds?.north,
+                minLng = bounds?.west,
+                maxLng = bounds?.east
             )
             Result.success(response.map { it.toDomain() })
         } catch (t: Throwable) {
@@ -60,7 +68,9 @@ class EstablishmentRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getEstablishmentDetail(id: Int): Result<EstablishmentDetail> {
+    override suspend fun getEstablishmentDetail(
+        id: Int
+    ): Result<EstablishmentDetail> {
         return try {
             val response = apiService.getEstablishmentDetail(id)
             Result.success(response.toDomain())

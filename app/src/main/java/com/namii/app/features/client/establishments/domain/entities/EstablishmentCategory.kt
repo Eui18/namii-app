@@ -32,61 +32,61 @@ enum class EstablishmentCategory(
     val icon: ImageVector
 ) {
     RESTAURANTES(
-        apiKey = "Restaurantes",
+        apiKey = "RESTAURANTES",
         displayName = "Restaurantes",
         color = CatRestaurantes,
         icon = Icons.Rounded.Restaurant
     ),
     CAFETERIAS(
-        apiKey = "Cafeterías",
+        apiKey = "CAFETERIAS",
         displayName = "Cafeterías",
         color = CatCafeterias,
         icon = Icons.Rounded.Coffee
     ),
     TAQUERIAS(
-        apiKey = "Taquerías",
+        apiKey = "TAQUERIAS",
         displayName = "Taquerías",
         color = CatTaquerias,
         icon = Icons.Rounded.LocalDining
     ),
     PANADERIAS(
-        apiKey = "Panaderías",
+        apiKey = "PANADERIAS",
         displayName = "Panaderías",
         color = CatPanaderias,
         icon = Icons.Rounded.BakeryDining
     ),
     REPOSTERIAS(
-        apiKey = "Reposterías",
+        apiKey = "REPOSTERIAS",
         displayName = "Reposterías",
         color = CatReposterias,
         icon = Icons.Rounded.Cookie
     ),
     PIZZERIAS(
-        apiKey = "Pizzerías",
+        apiKey = "PIZZERIAS",
         displayName = "Pizzerías",
         color = CatPizzerias,
         icon = Icons.Rounded.LocalPizza
     ),
     FONDAS(
-        apiKey = "Fondas",
+        apiKey = "FONDAS",
         displayName = "Fondas",
         color = CatFondas,
         icon = Icons.Rounded.SoupKitchen
     ),
     COMIDA_RAPIDA(
-        apiKey = "Comida rápida",
+        apiKey = "COMIDA_RAPIDA",
         displayName = "Comida rápida",
         color = CatComidaRapida,
         icon = Icons.Rounded.Fastfood
     ),
     BEBIDAS(
-        apiKey = "Bebidas",
+        apiKey = "BEBIDAS",
         displayName = "Bebidas",
         color = CatBebidas,
         icon = Icons.Rounded.LocalBar
     ),
     POSTRES(
-        apiKey = "Postres",
+        apiKey = "POSTRES",
         displayName = "Postres",
         color = CatPostres,
         icon = Icons.Rounded.Cake
