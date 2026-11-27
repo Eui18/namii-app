@@ -1,3 +1,80 @@
 <resources>
     <string name="app_name">Ñamii</string>
+    <string name="brand_header">PAUSA CAFÉ</string>
+
+    <!-- Navegación inferior -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_map">Mapa</string>
+    <string name="nav_favorites">Favoritos</string>
+
+    <!-- Vista 1: Inicio -->
+    <string name="home_greeting">¿Qué se te antoja hoy?</string>
+    <string name="search_placeholder">Busca un negocio o un platillo</string>
+    <string name="section_categories">Categorías</string>
+    <string name="section_explore">Explorar</string>
+    <string name="explore_subtitle">Explora negocios cercanos</string>
+    <string name="btn_open_map">Abrir mapa</string>
+    <string name="section_popular">Populares</string>
+    <string name="action_see_all">Ver todo</string>
+    <string name="empty_popular">Aún no hay negocios populares disponibles.</string>
+
+    <!-- Vista 2: Lista por categoría -->
+    <string name="title_establishments">Negocios</string>
+    <string name="chip_all">Todo</string>
+    <string name="empty_category">Aún no hay negocios en esta categoría</string>
+
+    <!-- Vista 3: Populares -->
+    <string name="title_popular">Populares</string>
+    <string name="popular_subtitle">Los 10 negocios mejor calificados</string>
+
+    <!-- Vista 4: Búsqueda -->
+    <string name="search_matched_with">Coincidió con:</string>
+    <string name="search_empty_prompt">Escribe el nombre de un negocio o platillo para comenzar.</string>
+    <string name="search_no_results">No encontramos negocios con eso</string>
+
+    <!-- Vista 5: Mapa -->
+    <string name="map_amber_hint">Ubicación desactivada · Toca para activar</string>
+    <string name="map_updating">Actualizando zona…</string>
+    <string name="btn_view_profile_menu">Ver perfil y menú</string>
+    <string name="permission_location_title">¿Usar tu ubicación actual?</string>
+    <string name="permission_location_body">Solo utilizamos tu ubicación temporalmente para centrar el mapa y mostrarte establecimientos cercanos. No se guarda en nuestros servidores.</string>
+    <string name="btn_allow">Permitir</string>
+    <string name="btn_not_now">Ahora no</string>
+
+    <!-- Vista 6: Perfil y menú -->
+    <string name="status_open">Abierto</string>
+    <string name="status_closed">Cerrado</string>
+    <string name="action_view_on_map">Ver en el mapa</string>
+    <string name="section_menu">Menú</string>
+    <string name="menu_chip_all">Todos</string>
+    <string name="menu_empty">Este negocio aún no tiene productos registrados.</string>
+    <string name="product_sold_out">Agotado</string>
+    <string name="product_unavailable">No disponible</string>
+    <string name="rate_place_title">Califica este lugar</string>
+    <string name="rate_guest_hint">Necesitas una cuenta para calificar. Puedes cambiar tu calificación después.</string>
+    <string name="rate_logged_hint">Tu calificación actual · Puedes cambiarla cuando quieras</string>
+
+    <!-- Vista 7: Favoritos -->
+    <string name="title_my_favorites">Mis favoritos</string>
+    <string name="favorites_guest_title">Guarda tus negocios favoritos</string>
+    <string name="favorites_guest_subtitle">Inicia sesión para guardar tus lugares preferidos y calificar los establecimientos que visites.</string>
+    <string name="favorites_empty">Aún no guardas ningún negocio</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="btn_create_account">Crear cuenta</string>
+    <string name="btn_logout">Cerrar sesión</string>
+
+    <!-- Vistas 8 & 9: Modales Auth -->
+    <string name="auth_default_login_subtitle">Accede con tu cuenta para guardar favoritos y calificar negocios.</string>
+    <string name="auth_default_register_subtitle">Crea tu cuenta de cliente para guardar favoritos y calificar.</string>
+    <string name="label_name">Nombre completo *</string>
+    <string name="label_email">Correo electrónico *</string>
+    <string name="label_password">Contraseña *</string>
+    <string name="label_confirm_password">Confirmar contraseña *</string>
+    <string name="link_no_account">¿No tienes cuenta? Crear cuenta</string>
+    <string name="link_has_account">¿Ya tienes cuenta? Iniciar sesión</string>
+    <string name="password_rules_hint">Mínimo 8 caracteres, una mayúscula, una minúscula y un número</string>
+
+    <!-- Estados generales -->
+    <string name="btn_retry">Reintentar</string>
+    <string name="error_generic">No se pudo conectar con el servidor. Verifica tu conexión.</string>
 </resources>
