@@ -34,4 +34,10 @@ interface AuthApiService {
 
     @POST("auth/client/register")
     suspend fun registerClient(@Body request: RegisterRequestDto): AuthResponseDto
+
+    @POST("auth/seller/login")
+    suspend fun loginSeller(@Body request: LoginRequestDto): AuthResponseDto
+
+    @POST("auth/seller/register")
+    suspend fun registerSeller(@Body request: RegisterRequestDto): AuthResponseDto
 }

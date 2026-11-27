@@ -55,6 +55,42 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun loginSeller(email: String, password: String): Result<AuthSession> {
+        return try {
+            val response = apiService.loginSeller(
+                LoginRequestDto(email = email.trim().lowercase(), password = password)
+            )
+            val session = response.toDomain()
+            localDataSource.saveSession(session)
+            Result.success(session)
+        } catch (t: Throwable) {
+            Result.failure(Exception(errorParser.parse(t)))
+        }
+    }
+
+    override suspend fun registerSeller(
+        name: String,
+        email: String,
+        password: String,
+        confirmPassword: String
+    ): Result<AuthSession> {
+        return try {
+            val response = apiService.registerSeller(
+                RegisterRequestDto(
+                    name = name.trim(),
+                    email = email.trim().lowercase(),
+                    password = password,
+                    confirmPassword = confirmPassword
+                )
+            )
+            val session = response.toDomain()
+            localDataSource.saveSession(session)
+            Result.success(session)
+        } catch (t: Throwable) {
+            Result.failure(Exception(errorParser.parse(t)))
+        }
+    }
+
     override fun logout() {
         localDataSource.clearSession()
     }

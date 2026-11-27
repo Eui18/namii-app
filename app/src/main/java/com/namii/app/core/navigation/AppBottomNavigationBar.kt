@@ -51,7 +51,7 @@ fun AppBottomNavigationBar(
                         val targetRoute = tab.baseRoute
                         if (currentRoute != targetRoute) {
                             navController.navigate(targetRoute) {
-                                popUpTo(navController.graph.startDestinationId) {
+                                popUpTo(ClientRoutes.HOME) {
                                     saveState = true
                                 }
                                 launchSingleTop = true

@@ -2,6 +2,7 @@ package com.namii.app.core.navigation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.namii.app.features.auth.domain.entities.UserRole
 import com.namii.app.features.auth.domain.usecases.ObserveSessionUseCase
 import com.namii.app.features.auth.presentation.viewmodels.PendingAuthAction
 import com.namii.app.features.client.favorites.domain.usecases.GetFavoritesUseCase
@@ -16,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainAppViewModel @Inject constructor(
-    observeSessionUseCase: ObserveSessionUseCase,
+    private val observeSessionUseCase: ObserveSessionUseCase,
     private val getFavoritesUseCase: GetFavoritesUseCase,
     private val observeFavoriteIdsUseCase: ObserveFavoriteIdsUseCase,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase
@@ -25,10 +26,13 @@ class MainAppViewModel @Inject constructor(
     private val _pendingRating = MutableStateFlow<Pair<Int, Int>?>(null) // establishmentId to stars
     val pendingRating: StateFlow<Pair<Int, Int>?> = _pendingRating.asStateFlow()
 
+    val isSellerLoggedIn: Boolean
+        get() = observeSessionUseCase().value?.user?.role == UserRole.VENDEDOR
+
     init {
         viewModelScope.launch {
             observeSessionUseCase().collect { session ->
-                if (session != null) {
+                if (session != null && session.user.role == UserRole.CLIENTE) {
                     getFavoritesUseCase()
                 }
             }

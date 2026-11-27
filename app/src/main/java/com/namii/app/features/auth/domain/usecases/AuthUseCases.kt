@@ -37,3 +37,24 @@ class LogoutClientUseCase @Inject constructor(
 ) {
     operator fun invoke() = repository.logout()
 }
+
+class LoginSellerUseCase @Inject constructor(
+    private val repository: AuthRepository
+) {
+    suspend operator fun invoke(email: String, password: String): Result<AuthSession> {
+        return repository.loginSeller(email.trim(), password)
+    }
+}
+
+class RegisterSellerUseCase @Inject constructor(
+    private val repository: AuthRepository
+) {
+    suspend operator fun invoke(
+        name: String,
+        email: String,
+        password: String,
+        confirmPassword: String
+    ): Result<AuthSession> {
+        return repository.registerSeller(name.trim(), email.trim(), password, confirmPassword)
+    }
+}

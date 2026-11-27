@@ -12,6 +12,11 @@ val DuraznoLight = Color(0xFFFEF6F0)
 val RojoGuajillo = Color(0xFFE5384F)
 val RosaGuayaba = Color(0xFFD94A70)
 
+// Acentos específicos Vendedor
+val SellerCacaoInk = Color(0xFF2E1A14)
+val SellerSoftBrown = Color(0xFF735548)
+val SellerAmberMiel = Color(0xFFE9A23B)
+
 // Textos y bordes
 val TextoPrincipal = Color(0xFF2B130B)
 val TextoSecundario = Color(0xFF7A6358)

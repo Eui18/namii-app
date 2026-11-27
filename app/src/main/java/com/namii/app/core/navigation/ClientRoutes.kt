@@ -62,3 +62,34 @@ object ClientRoutes {
 
     fun detailRoute(businessId: Int): String = "client/establishment/$businessId"
 }
+
+object AppRoutes {
+    const val WELCOME_ROLE = "welcome/role"
+}
+
+object SellerRoutes {
+    const val LOGIN = "seller/login"
+    const val REGISTER = "seller/register"
+    const val ENTRY = "seller/entry"
+
+    const val ONBOARDING_GRAPH = "seller/onboarding"
+    const val ONBOARDING_STEP_1 = "seller/onboarding/info"
+    const val ONBOARDING_STEP_2 = "seller/onboarding/location"
+    const val ONBOARDING_STEP_3 = "seller/onboarding/cover_hours"
+
+    const val DASHBOARD = "seller/dashboard"
+    const val PRODUCTS = "seller/products/{establishmentId}"
+    const val PRODUCT_FORM = "seller/products/{establishmentId}/form?productId={productId}"
+
+    const val EDIT_GRAPH = "seller/edit"
+    const val EDIT_MAIN = "seller/edit/main"
+    const val EDIT_LOCATION = "seller/edit/location"
+    const val EDIT_HOURS = "seller/edit/hours"
+
+    fun productsRoute(establishmentId: Int): String = "seller/products/$establishmentId"
+
+    fun productFormRoute(establishmentId: Int, productId: Int? = null): String {
+        val pid = productId ?: -1
+        return "seller/products/$establishmentId/form?productId=$pid"
+    }
+}

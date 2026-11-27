@@ -42,7 +42,20 @@ fun MainAppScreen(
         }
     }
 
-    val showBottomBar = currentRoute != ClientRoutes.DETAIL
+    val showBottomBar = currentRoute == ClientRoutes.HOME ||
+        currentRoute == ClientRoutes.CATEGORY_LIST ||
+        currentRoute == ClientRoutes.POPULAR ||
+        currentRoute == ClientRoutes.SEARCH ||
+        currentRoute == ClientRoutes.MAP_PATTERN ||
+        currentRoute == ClientRoutes.FAVORITES
+
+    val startDestination = remember {
+        if (mainAppViewModel.isSellerLoggedIn) {
+            SellerRoutes.ENTRY
+        } else {
+            AppRoutes.WELCOME_ROLE
+        }
+    }
 
     Scaffold(
         containerColor = PureWhite,
@@ -59,6 +72,8 @@ fun MainAppScreen(
     ) { innerPadding ->
         AppNavHost(
             navController = navController,
+            startDestination = startDestination,
+            isSellerLoggedIn = { mainAppViewModel.isSellerLoggedIn },
             pendingRating = pendingRating,
             onConsumedPendingRating = mainAppViewModel::consumePendingRating,
             onOpenLogin = {

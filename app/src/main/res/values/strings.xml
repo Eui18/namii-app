@@ -77,4 +77,18 @@
     <!-- Estados generales -->
     <string name="btn_retry">Reintentar</string>
     <string name="error_generic">No se pudo conectar con el servidor. Verifica tu conexión.</string>
+
+    <!-- V-00, V-01, V-02: Selección de rol y Auth Vendedor -->
+    <string name="welcome_title">¿Cómo deseas usar Ñamii hoy?</string>
+    <string name="welcome_subtitle">Elige tu perfil para explorar lugares increíbles o administrar tu propio negocio.</string>
+    <string name="role_explorer_title">Quiero explorar</string>
+    <string name="role_explorer_desc">Descubre negocios cercanos, explora menús y guarda tus favoritos.</string>
+    <string name="role_seller_title">Soy vendedor</string>
+    <string name="role_seller_desc">Registra tu establecimiento, administra horarios, ubicación y menú en tiempo real.</string>
+    <string name="seller_login_title">Acceso para vendedores</string>
+    <string name="seller_login_subtitle">Inicia sesión para gestionar tu negocio y menú.</string>
+    <string name="seller_register_title">Crear cuenta de vendedor</string>
+    <string name="seller_register_subtitle">Crea tu cuenta para registrar tu establecimiento en Ñamii.</string>
+    <string name="seller_no_account">¿No tienes cuenta de vendedor? Registrarse</string>
+    <string name="seller_has_account">¿Ya tienes cuenta de vendedor? Iniciar sesión</string>
 </resources>
